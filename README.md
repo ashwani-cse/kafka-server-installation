@@ -6,9 +6,15 @@ This is a guide to install Kafka server using docker-compose.
 - Install Docker-compose on your OS (if not installed with above step)
 - Clone this repository
 - Open terminal and navigate to the cloned repository
-- Run the following command to start the Kafka server
+- Run the following command to start the Kafka server 
+
+### on mac
 ```bash
-docker-compose up -d
+docker-compose up -ds
+```
+### on windows
+```bash
+docker-compose -f dockeComposeFileName.yml up -d
 ```
 - Run the following command to check the status of the Kafka server
 ```bash
