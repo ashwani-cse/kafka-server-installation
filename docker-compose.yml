@@ -1,0 +1,19 @@
+version: '3.9' #docker compose version
+name: kafka-server-installation #name of the service
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper #image of the service
+    container_name: zookeeper #name of the container
+    ports:
+      - "2181:2181" #port mapping
+  kafka:
+    image: wurstmeister/kafka #image of the service
+    container_name: kafka #name of the container
+    ports:
+      - "9092:9092" #port mapping
+    environment:
+      KAFKA_LISTENERS: PLAINTEXT://:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper
